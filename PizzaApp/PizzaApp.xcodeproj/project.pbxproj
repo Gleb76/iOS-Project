@@ -14,6 +14,7 @@
 		7742D4062AF68CEF00E377F2 /* PizzaApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7742D4042AF68CEF00E377F2 /* PizzaApp.xcdatamodeld */; };
 		7742D4082AF68CF000E377F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7742D4072AF68CF000E377F2 /* Assets.xcassets */; };
 		7742D40B2AF68CF000E377F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7742D4092AF68CF000E377F2 /* LaunchScreen.storyboard */; };
+		7742D4132AF68D4000E377F2 /* PizzaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7742D4122AF68D4000E377F2 /* PizzaModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		7742D4072AF68CF000E377F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7742D40A2AF68CF000E377F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7742D40C2AF68CF000E377F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7742D4122AF68D4000E377F2 /* PizzaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +60,41 @@
 		7742D3FA2AF68CEF00E377F2 /* PizzaApp */ = {
 			isa = PBXGroup;
 			children = (
-				7742D3FB2AF68CEF00E377F2 /* AppDelegate.swift */,
-				7742D3FD2AF68CEF00E377F2 /* SceneDelegate.swift */,
-				7742D3FF2AF68CEF00E377F2 /* ViewController.swift */,
+				7742D4142AF68D4E00E377F2 /* Service */,
+				7742D4152AF68D6000E377F2 /* ViewControllers */,
 				7742D4012AF68CEF00E377F2 /* Main.storyboard */,
 				7742D4072AF68CF000E377F2 /* Assets.xcassets */,
 				7742D4092AF68CF000E377F2 /* LaunchScreen.storyboard */,
+				7742D4162AF68D7400E377F2 /* Model */,
+			);
+			path = PizzaApp;
+			sourceTree = "<group>";
+		};
+		7742D4142AF68D4E00E377F2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				7742D3FB2AF68CEF00E377F2 /* AppDelegate.swift */,
+				7742D3FD2AF68CEF00E377F2 /* SceneDelegate.swift */,
 				7742D40C2AF68CF000E377F2 /* Info.plist */,
 				7742D4042AF68CEF00E377F2 /* PizzaApp.xcdatamodeld */,
 			);
-			path = PizzaApp;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7742D4152AF68D6000E377F2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7742D3FF2AF68CEF00E377F2 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7742D4162AF68D7400E377F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7742D4122AF68D4000E377F2 /* PizzaModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +170,7 @@
 			files = (
 				7742D4062AF68CEF00E377F2 /* PizzaApp.xcdatamodeld in Sources */,
 				7742D4002AF68CEF00E377F2 /* ViewController.swift in Sources */,
+				7742D4132AF68D4000E377F2 /* PizzaModel.swift in Sources */,
 				7742D3FC2AF68CEF00E377F2 /* AppDelegate.swift in Sources */,
 				7742D3FE2AF68CEF00E377F2 /* SceneDelegate.swift in Sources */,
 			);
@@ -306,9 +334,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.PizzaApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -334,9 +365,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "-.PizzaApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
