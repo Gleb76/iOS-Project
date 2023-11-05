@@ -12,7 +12,7 @@ final class PizzaTableViewController: UITableViewController {
     var ingredients: [Ingredient] = []
     var selectedIngredients: [Ingredient] = []
     var pizzaController: PizzaController!
-    let finishButton = UIBarButtonItem(title: "Finish", style: .plain, target: self, action: #selector(finishButtonTapped))
+    let finishButton = UIBarButtonItem(title: "Готово", style: .plain, target: PizzaTableViewController.self, action: #selector(finishButtonTapped))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,6 @@ final class PizzaTableViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         tableView.allowsMultipleSelection = true
         
-        // Создание экземпляра контроллера пиццы
         pizzaController = PizzaController()
         
         finishButton.target = self
@@ -96,9 +95,7 @@ final class PizzaTableViewController: UITableViewController {
     // MARK: - Actions
     
     @objc func finishButtonTapped() {
-        // Проверяем, что выбран хотя бы один ингредиент
         guard !selectedIngredients.isEmpty else {
-            // Если ни один ингредиент не выбран, показываем предупреждение
             let alertController = UIAlertController(title: "Ошибка", message: "Выберите хотя бы один ингредиент", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)

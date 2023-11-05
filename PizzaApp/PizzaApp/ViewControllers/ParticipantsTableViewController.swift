@@ -7,17 +7,17 @@
 
 import UIKit
 
-import UIKit
-
 final class ParticipantsTableViewController: UITableViewController {
     let participants = Participant.getParticipants()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "reuseIdentifier")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1 // Assuming you want to display all participants in a single section
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,6 +31,18 @@ final class ParticipantsTableViewController: UITableViewController {
         cell.detailTextLabel?.text = participant.telegramName
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let participant = participants[indexPath.row]
+        
+        performSegue(withIdentifier: "ShowPersonInfoSegue", sender: participant)
+    }
 
-    // Other table view delegate and data source methods can be implemented as needed
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPersonInfoSegue",
+           let participantVC = segue.destination as? ParticipantViewController,
+           let participant = sender as? Participant {
+            participantVC.participant = participant
+        }
+    }
 }

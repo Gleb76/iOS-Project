@@ -7,38 +7,37 @@
 
 import Foundation
 
+import Foundation
+
 struct Participant {
     let name: String
     let surname: String
     let telegramName: String
+    let jobTitleName: String
+    let photo: String
     
     static func getParticipants() -> [Participant] {
-        [
-<<<<<<< HEAD
+        return [
             Participant(name: "Глеб",
                         surname: "Клыга",
-                        telegramName: "@glebkly"),
+                        telegramName: "@glebklyga",
+                        jobTitleName: "Team Lead",
+                        photo: "Gleb"),
             Participant(name: "Глеб",
                         surname: "Зобнин",
-                        telegramName: "@glebzo"),
+                        telegramName: "@glebzo",
+                        jobTitleName: "Programmer",
+                        photo: "gleb_zobnin"),
             Participant(name: "Виктор",
                         surname: "Смирнов",
-                        telegramName: "@vismirn95"),
+                        telegramName: "@vismirn95",
+                        jobTitleName: "Programmer",
+                        photo: "victor"),
             Participant(name: "Евгений",
-=======
-            Participant(name: "Глеб", 
-                        surname: "Клыга",
-                        telegramName: "@glebkly"),
-            Participant(name: "Глеб", 
-                        surname: "Зобнин",
-                        telegramName: "@glebzo"),
-            Participant(name: "Виктор", 
-                        surname: "Смирнов",
-                        telegramName: "@vismirn95"),
-            Participant(name: "Евгений", 
->>>>>>> 42b3e5ebbb1b27b8a53f99ab506c54a673ecf664
                         surname: "Муравушкин",
-                        telegramName: "@MURAVUSHKA420")
+                        telegramName: "@MURAVUSHKA420",
+                        jobTitleName: "Programmer",
+                        photo: "")
         ]
     }
 }
