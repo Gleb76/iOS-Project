@@ -7,7 +7,13 @@
 
 import Foundation
 
-class PizzaController {
+struct Pizza {
+    let name: String
+    let imageName: String
+    let ingredients: [String]
+}
+
+final class PizzaController {
     let pizzaModel: PizzaModel
     
     init() {
@@ -20,6 +26,14 @@ class PizzaController {
     
     func removeIngredient(_ ingredient: Ingredient) {
         pizzaModel.removeIngredient(ingredient)
+    }
+    
+    func getPizzas() -> [Pizza] {
+        let pizzas: [Pizza] = [
+            Pizza(name: "Маргарита", imageName: "margherita", ingredients: ["Помидоры","Сыр"]),
+            Pizza(name: "Грибная", imageName: "mushroom", ingredients: ["Грибы","Сыр"])
+        ]
+        return pizzas
     }
     
     func printPizza() {

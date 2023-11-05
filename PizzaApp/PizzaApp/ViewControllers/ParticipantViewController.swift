@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ParticipantViewController: UIViewController {
+final class ParticipantViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,23 +7,19 @@
 
 import UIKit
 
-class PizzaInfoViewController: UIViewController {
-
+final class PizzaInfoViewController: UIViewController {
+    var pizza: Pizza?
+    
+    @IBOutlet weak var pizzaNameLabel: UILabel!
+    @IBOutlet weak var pizzaImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let pizza = pizza {
+            pizzaNameLabel.text = pizza.name
+            pizzaImageView.image = UIImage(named: pizza.imageName)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

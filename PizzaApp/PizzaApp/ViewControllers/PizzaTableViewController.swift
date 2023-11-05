@@ -7,7 +7,8 @@
 
 import UIKit
 
-class PizzaTableViewController: UITableViewController {
+
+final class PizzaTableViewController: UITableViewController {
     var ingredients: [Ingredient] = []
     var selectedIngredients: [Ingredient] = []
     var pizzaController: PizzaController!
@@ -77,6 +78,13 @@ class PizzaTableViewController: UITableViewController {
             updateCellAccessory(for: indexPath, isSelected: false)
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowPizzaInfoSegue" {
+            if let pizzaInfoViewController = segue.destination as? PizzaInfoViewController, let pizza = sender as? Pizza {
+                pizzaInfoViewController.pizza = pizza
+            }
+        }
+    }
     
     // MARK: - Helper methods
     
@@ -88,6 +96,40 @@ class PizzaTableViewController: UITableViewController {
     // MARK: - Actions
     
     @objc func finishButtonTapped() {
-           pizzaController.printPizza()
-       }
+        // Проверяем, что выбран хотя бы один ингредиент
+        guard !selectedIngredients.isEmpty else {
+            // Если ни один ингредиент не выбран, показываем предупреждение
+            let alertController = UIAlertController(title: "Ошибка", message: "Выберите хотя бы один ингредиент", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+            return
+        }
+        
+        var selectedIngredientNames: [String] = []
+        for ingredient in selectedIngredients {
+            selectedIngredientNames.append(ingredient.name)
+        }
+        
+        let pizza = createPizzaFromIngredients(selectedIngredientNames)
+        
+        if let pizza = pizza {
+            performSegue(withIdentifier: "ShowPizzaInfoSegue", sender: pizza)
+        } else {
+            let alertController = UIAlertController(title: "Ошибка", message: "Не удалось создать пиццу с выбранными ингредиентами", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            present(alertController, animated: true, completion: nil)
+        }
+    }
+    
+    func createPizzaFromIngredients(_ ingredientNames: [String]) -> Pizza? {
+        if ingredientNames.contains("Помидоры") && ingredientNames.contains("Сыр") {
+            return Pizza(name: "Маргарита", imageName: "margherita", ingredients: ingredientNames)
+        } else if ingredientNames.contains("Грибы") && ingredientNames.contains("Сыр") {
+            return Pizza(name: "Грибная", imageName: "mushroom", ingredients: ingredientNames)
+        }
+        
+        return nil
+    }
 }

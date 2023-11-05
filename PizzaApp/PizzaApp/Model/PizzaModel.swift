@@ -7,7 +7,8 @@
 
 import Foundation
 
-class Ingredient: Equatable {
+
+final class Ingredient: Equatable {
     var name: String
     
     init(name: String) {
